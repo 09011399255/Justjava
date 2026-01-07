@@ -1,0 +1,240 @@
+
+/* Navigation */
+.main-navigation {
+  position: sticky;
+  top: 0;
+  background: var(--bg-light);
+  padding: var(--spacing-md) 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.nav-cta-btn {
+  flex-shrink: 0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  list-style: none;
+  background: #ebebeb;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+.nav-links a {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+  border-radius: 50px;
+}
+
+.nav-links a:hover {
+  color: var(--text-dark);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-light);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: var(--spacing-sm);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #255bec 0%, #780aff 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1e4bc7 0%, #6509d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(120, 10, 255, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-purple);
+  border: 2px solid var(--primary-purple);
+}
+
+.btn-outline:hover {
+  background: var(--primary-purple);
+  color: white;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Hero CTA Button */
+.btn-hero-cta {
+  width: 360px;
+  height: 84px;
+  padding: 16px;
+  border-radius: 160px;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: center;
+}
+
+.btn-text-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+.btn-text-large {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.24px;
+}
+
+/* Product Cards */
+.product-card {
+  background: var(--bg-light);
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 144px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.product-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.product-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--bg-gray);
+  flex-shrink: 0;
+}
+
+.product-card-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.product-card-title {
+  font-size: 43px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.86px;
+  background: linear-gradient(135deg, #255bec 0%, #780aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: left;
+}
+
+.product-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  margin-bottom: 0;
+}
+
+.product-card-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+}
