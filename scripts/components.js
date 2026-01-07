@@ -10,13 +10,13 @@ function createNavigation() {
         <div class="main-navigation">
             <div class="container">
                 <div class="nav-container">
-                    <a href="index.html" class="nav-logo">
-                        <img src="Assets/Images/JJ LOGO 2.png" alt="Just-Java Logo">
-                    </a>
-                    
                     <button class="mobile-menu-toggle" aria-label="Toggle menu">
                         ☰
                     </button>
+                    
+                    <a href="index.html" class="nav-logo">
+                        <img src="Assets/Images/JJ LOGO 2.png" alt="Just-Java Logo">
+                    </a>
                     
                     <ul class="nav-links">
                         <li><a href="#services">Services</a></li>
