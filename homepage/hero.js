@@ -80,3 +80,67 @@ function createHeroSection() {
 
 // Initialize hero section on page load
 createHeroSection();
+
+// Make hero description editable
+function makeHeroDescriptionEditable() {
+  // Find the hero description paragraph
+  const heroDescription = document.querySelector(".hero-description");
+
+  // When someone clicks on the description
+  heroDescription.addEventListener("click", function () {
+    // Save the current text before editing
+    const currentText = heroDescription.textContent;
+
+    // Create a textarea (input box) for editing
+    const textarea = document.createElement("textarea");
+    textarea.value = currentText;
+    textarea.className = "hero-description-edit";
+    textarea.style.width = "100%";
+    textarea.style.minHeight = "100px";
+    textarea.style.fontSize = "1.1rem";
+    textarea.style.padding = "10px";
+    textarea.style.border = "2px solid #6c5ce7";
+    textarea.style.borderRadius = "8px";
+    textarea.style.fontFamily = "inherit";
+    textarea.style.lineHeight = "1.8";
+
+    // Create a Save button
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.style.marginTop = "10px";
+    saveButton.style.padding = "10px 20px";
+    saveButton.style.background = "#6c5ce7";
+    saveButton.style.color = "white";
+    saveButton.style.border = "none";
+    saveButton.style.borderRadius = "8px";
+    saveButton.style.cursor = "pointer";
+    saveButton.style.fontWeight = "600";
+
+    // Replace the paragraph with the textarea
+    heroDescription.style.display = "none";
+    heroDescription.parentElement.insertBefore(textarea, heroDescription);
+    heroDescription.parentElement.insertBefore(saveButton, heroDescription);
+
+    // Focus on the textarea so user can start typing
+    textarea.focus();
+
+    // When Save button is clicked
+    saveButton.addEventListener("click", function () {
+      // Get the new text from textarea
+      const newText = textarea.value;
+
+      // Update the paragraph with new text
+      heroDescription.textContent = newText;
+
+      // Remove the textarea and save button
+      textarea.remove();
+      saveButton.remove();
+
+      // Show the paragraph again
+      heroDescription.style.display = "block";
+    });
+  });
+}
+
+// Call the function after the hero section is created
+setTimeout(makeHeroDescriptionEditable, 100);

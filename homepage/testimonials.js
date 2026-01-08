@@ -88,3 +88,110 @@ function createTestimonialsSection() {
 
 // Initialize testimonials section on page load
 createTestimonialsSection();
+
+// Make testimonial reviews editable
+function makeTestimonialsEditable() {
+  // Find all testimonial text elements
+  const testimonialTexts = document.querySelectorAll(".testimonial-text");
+
+  // Loop through each testimonial review
+  testimonialTexts.forEach(function (testimonialText) {
+    // Add a visual hint that it's clickable
+    testimonialText.style.cursor = "pointer";
+    testimonialText.style.position = "relative";
+
+    // When someone clicks on the review text
+    testimonialText.addEventListener("click", function () {
+      // Save the current text
+      const currentText = testimonialText.textContent.trim();
+
+      // Create a textarea for editing
+      const textarea = document.createElement("textarea");
+      textarea.value = currentText;
+      textarea.style.width = "100%";
+      textarea.style.minHeight = "120px";
+      textarea.style.fontSize = "1rem";
+      textarea.style.padding = "12px";
+      textarea.style.border = "2px solid #6c5ce7";
+      textarea.style.borderRadius = "8px";
+      textarea.style.fontFamily = "inherit";
+      textarea.style.lineHeight = "1.6";
+      textarea.style.resize = "vertical";
+
+      // Create a Save button
+      const saveButton = document.createElement("button");
+      saveButton.textContent = "Save Review";
+      saveButton.style.marginTop = "10px";
+      saveButton.style.padding = "8px 16px";
+      saveButton.style.background = "#6c5ce7";
+      saveButton.style.color = "white";
+      saveButton.style.border = "none";
+      saveButton.style.borderRadius = "6px";
+      saveButton.style.cursor = "pointer";
+      saveButton.style.fontWeight = "600";
+      saveButton.style.fontSize = "0.9rem";
+
+      // Create a Cancel button
+      const cancelButton = document.createElement("button");
+      cancelButton.textContent = "Cancel";
+      cancelButton.style.marginTop = "10px";
+      cancelButton.style.marginLeft = "10px";
+      cancelButton.style.padding = "8px 16px";
+      cancelButton.style.background = "#e0e0e0";
+      cancelButton.style.color = "#333";
+      cancelButton.style.border = "none";
+      cancelButton.style.borderRadius = "6px";
+      cancelButton.style.cursor = "pointer";
+      cancelButton.style.fontWeight = "600";
+      cancelButton.style.fontSize = "0.9rem";
+
+      // Hide the original text
+      testimonialText.style.display = "none";
+
+      // Add textarea and buttons after the hidden text
+      testimonialText.parentElement.insertBefore(
+        textarea,
+        testimonialText.nextSibling
+      );
+      testimonialText.parentElement.insertBefore(
+        saveButton,
+        testimonialText.nextSibling
+      );
+      testimonialText.parentElement.insertBefore(
+        cancelButton,
+        testimonialText.nextSibling
+      );
+
+      // Focus on textarea
+      textarea.focus();
+
+      // When Save button is clicked
+      saveButton.addEventListener("click", function () {
+        const newText = textarea.value;
+        testimonialText.textContent = newText;
+
+        // Remove editing elements
+        textarea.remove();
+        saveButton.remove();
+        cancelButton.remove();
+
+        // Show the paragraph again
+        testimonialText.style.display = "block";
+      });
+
+      // When Cancel button is clicked
+      cancelButton.addEventListener("click", function () {
+        // Just remove editing elements without saving
+        textarea.remove();
+        saveButton.remove();
+        cancelButton.remove();
+
+        // Show the original text again
+        testimonialText.style.display = "block";
+      });
+    });
+  });
+}
+
+// Call the function after testimonials section is created
+setTimeout(makeTestimonialsEditable, 100);
