@@ -28,9 +28,32 @@ function createTestimonialsSection() {
                         <span>★</span>
                         <span>★</span>
                     </div>
-                    <p class="testimonial-text">
-                        We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
-                    </p>
+                    <div class="testimonial-text-wrapper" style="position: relative;">
+                        <p class="testimonial-text">
+                            We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
+                        </p>
+                        <button class="edit-testimonial-btn" title="Edit testimonial" style="
+                            position: absolute;
+                            top: -15px;
+                            right: -15px;
+                            background: #6c5ce7;
+                            border: none;
+                            border-radius: 50%;
+                            width: 28px;
+                            height: 28px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 14px;
+                            box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+                            transition: all 0.3s ease;
+                            z-index: 10;
+                        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(108, 92, 231, 0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(108, 92, 231, 0.3)'">
+                            ✏️
+                        </button>
+                    </div>
                     <div class="testimonial-author">
                         <img src="Assets/Images/testimonials.png" alt="Simon Claw" class="author-avatar">
                         <div class="author-info">
@@ -49,9 +72,32 @@ function createTestimonialsSection() {
                         <span>★</span>
                         <span>★</span>
                     </div>
-                    <p class="testimonial-text">
-                        We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
-                    </p>
+                    <div class="testimonial-text-wrapper" style="position: relative;">
+                        <p class="testimonial-text">
+                            We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
+                        </p>
+                        <button class="edit-testimonial-btn" title="Edit testimonial" style="
+                            position: absolute;
+                            top: -15px;
+                            right: -15px;
+                            background: #6c5ce7;
+                            border: none;
+                            border-radius: 50%;
+                            width: 28px;
+                            height: 28px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 14px;
+                            box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+                            transition: all 0.3s ease;
+                            z-index: 10;
+                        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(108, 92, 231, 0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(108, 92, 231, 0.3)'">
+                            ✏️
+                        </button>
+                    </div>
                     <div class="testimonial-author">
                         <img src="Assets/Images/testimonials.png" alt="Simon Claw" class="author-avatar">
                         <div class="author-info">
@@ -70,9 +116,32 @@ function createTestimonialsSection() {
                         <span>★</span>
                         <span>★</span>
                     </div>
-                    <p class="testimonial-text">
-                        We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
-                    </p>
+                    <div class="testimonial-text-wrapper" style="position: relative;">
+                        <p class="testimonial-text">
+                            We burned months with freelancers who ghosted us halfway through. JustJava came in, rebuilt the backend, and delivered our platform on a real timeline. Their structure and communication were a breath of fresh air—we finally felt like we had a real engineering team
+                        </p>
+                        <button class="edit-testimonial-btn" title="Edit testimonial" style="
+                            position: absolute;
+                            top: -15px;
+                            right: -15px;
+                            background: #6c5ce7;
+                            border: none;
+                            border-radius: 50%;
+                            width: 28px;
+                            height: 28px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 14px;
+                            box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+                            transition: all 0.3s ease;
+                            z-index: 10;
+                        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(108, 92, 231, 0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(108, 92, 231, 0.3)'">
+                            ✏️
+                        </button>
+                    </div>
                     <div class="testimonial-author">
                         <img src="Assets/Images/testimonials.png" alt="Simon Claw" class="author-avatar">
                         <div class="author-info">
@@ -91,17 +160,16 @@ createTestimonialsSection();
 
 // Make testimonial reviews editable
 function makeTestimonialsEditable() {
-  // Find all testimonial text elements
-  const testimonialTexts = document.querySelectorAll(".testimonial-text");
+  // Find all edit buttons
+  const editButtons = document.querySelectorAll(".edit-testimonial-btn");
 
-  // Loop through each testimonial review
-  testimonialTexts.forEach(function (testimonialText) {
-    // Add a visual hint that it's clickable
-    testimonialText.style.cursor = "pointer";
-    testimonialText.style.position = "relative";
-
-    // When someone clicks on the review text
-    testimonialText.addEventListener("click", function () {
+  // Loop through each edit button
+  editButtons.forEach(function (editButton) {
+    // When someone clicks on the edit button
+    editButton.addEventListener("click", function () {
+      // Find the testimonial text associated with this button
+      const testimonialText =
+        editButton.parentElement.querySelector(".testimonial-text");
       // Save the current text
       const currentText = testimonialText.textContent.trim();
 

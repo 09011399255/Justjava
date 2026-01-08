@@ -21,10 +21,32 @@ function createHeroSection() {
                         that just works.
                     </h1>
                     
-                    <p class="hero-description">
-                        Turn your product ideas into market-ready and modern reliable software 
-                        with the speed to scale and consistency every project deserves.
-                    </p>
+                    <div class="hero-description-wrapper" style="position: relative; display: inline-block;">
+                        <p class="hero-description">
+                            Turn your product ideas into market-ready and modern reliable software 
+                            with the speed to scale and consistency every project deserves.
+                        </p>
+                        <button class="edit-icon-btn" title="Edit description" style="
+                            position: absolute;
+                            top: -10px;
+                            right: -40px;
+                            background: #6c5ce7;
+                            border: none;
+                            border-radius: 50%;
+                            width: 32px;
+                            height: 32px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 16px;
+                            box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(108, 92, 231, 0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(108, 92, 231, 0.3)'">
+                            ✏️
+                        </button>
+                    </div>
                     
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn-primary btn-hero-cta">
@@ -83,11 +105,12 @@ createHeroSection();
 
 // Make hero description editable
 function makeHeroDescriptionEditable() {
-  // Find the hero description paragraph
+  // Find the hero description paragraph and edit button
   const heroDescription = document.querySelector(".hero-description");
+  const editButton = document.querySelector(".edit-icon-btn");
 
-  // When someone clicks on the description
-  heroDescription.addEventListener("click", function () {
+  // When someone clicks on the edit icon button
+  editButton.addEventListener("click", function () {
     // Save the current text before editing
     const currentText = heroDescription.textContent;
 
